@@ -230,7 +230,7 @@ class Builder {
 
 	setStylusRule(isModule, isMinicss) {
 		return {
-			test: /\.styl$/,
+			test: /\.sty(l|lus)$/,
 			use: [
 				isMinicss ? rspack.CssExtractRspackPlugin.loader : path.resolve(__dirname, '../../node_modules/style-loader'),
 				{

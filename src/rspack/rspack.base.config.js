@@ -14,6 +14,12 @@ module.exports = {
 		publicPath: "/",
 		clean: true,
 	},
+	cache: true,
+	experiments: {
+		cache: {
+			type: 'persistent',
+		},
+  	},
 	resolve: {
 		extensions: [".ts", ".tsx", ".js", ".jsx", ".vue", ".json"],
 		alias: {

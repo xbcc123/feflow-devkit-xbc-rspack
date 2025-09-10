@@ -115,7 +115,7 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.styl$/,
+				test: /\.sty(l|us)$/,
 				use: [
 					path.resolve(__dirname, '../../node_modules/vue-style-loader/index.js'),
 					// rspack.CssExtractRspackPlugin.loader,
