@@ -1,18 +1,19 @@
-
+import Builder from "./build/index.js";
+import { deepCloneUnique } from "./tools/index.js";
 const { rspack } = require("@rspack/core");
-const RspackDevServer = require("@rspack/dev-server");
-const merge = require("webpack-merge");
+const { RspackDevServer } = require("@rspack/dev-server");
+const currentConfig = require("./rspack/rspack.dev.config")
+const merge = require('webpack-merge');
 
 let config = {}, importConfig = {};
 
-import Builder from "./build/index.js";
-import { deepCloneUnique } from "./tools/index.js";
+
 
 let build = new Builder();
 
 function setSingleConfig(options) {
 	for (let key in options.devkit.commands) {
-		let single = merge(
+		let single = merge.smart(
 			options.devkit.commons,
 			options.devkit.commands[key].options
 		);
@@ -28,18 +29,13 @@ function getConfig(options, env) {
 	return options.devkit.commands[env].options;
 }
 
-const myHost = "0.0.0.0";
-
 module.exports = async (ctx) => {
-	importConfig = getConfig(ctx.projectConfig, "dev");
-	// 这里建议你将 currentConfig 替换为 rspack 的 dev 配置
-	const currentConfig = require("./rspack/rspack.dev.config");
-	config = merge(currentConfig, build.createDevConfig(importConfig));
-	const compiler = rspack(config);
+	importConfig = getConfig(ctx.projectConfig, "dev")
+	config = merge(currentConfig, build.createDevConfig(importConfig))
+	const compiler = rspack(config)
 	const devServerOptions = Object.assign({}, config.devServer, {
 		open: true,
-		host: myHost,
-	});
+	})
 	const server = new RspackDevServer(devServerOptions, compiler);
 	await server.start();
 };

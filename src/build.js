@@ -1,11 +1,12 @@
+import Builder from "./build/index.js";
+import { deepCloneUnique } from "./tools/index.js";
 const { rspack } = require("@rspack/core");
 const chalk = require("chalk");
 const currentConfig = require("./rspack/rspack.prod.config");
 const merge = require("webpack-merge");
+const fs = require("fs");
+const build = new Builder();
 let config = {}, importConfig = {};
-import Builder from "./build/index.js";
-import { deepCloneUnique } from "./tools/index.js";
-let build = new Builder();
 
 // 将公共配置绑定到各个环境
 function setSingleConfig(options) {
@@ -42,6 +43,7 @@ function getConfig(options, env) {
 export function run(ctx, options) {
 	importConfig = getConfig(ctx.projectConfig, options.env);
 	config = merge(currentConfig, build.createProdConfig(importConfig));
+	// 导出config到config.json
 	rspack(config, (err, stats) => {
 		if (err) throw err;
 		process.stdout.write(
