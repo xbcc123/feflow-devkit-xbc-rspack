@@ -1,7 +1,7 @@
 {
-  "name": "feflow-devkit-xbc-webpack5",
+  "name": "feflow-devkit-xbc-rspack",
   "version": "0.0.8",
-  "description": "webpack5编译套件",
+  "description": "rspack编译套件",
   "main": "index.js",
   "scripts": {
     "build": "rspack build --config ./src/rspack/rspack.prod.config.js",
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xbcc123/feflow-devkit-xbc-webpack5.git"
+    "url": "git+https://github.com/xbcc123/feflow-devkit-xbc-rspack.git"
   },
   "keywords": [
     "webpack",

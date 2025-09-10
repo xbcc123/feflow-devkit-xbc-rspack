@@ -1,13 +1,13 @@
 
 
-<h1 align="center">feflow-devkit-xbc-webpack5</h1>
-feflow-devkit-webpack5 为feflow套件 支持编译指定React，Vue项目模板 通过配置套件配置可以定制化项目编译参数
+<h1 align="center">feflow-devkit-xbc-rspack</h1>
+feflow-devkit-rspack 为feflow套件 支持编译指定React，Vue项目模板 通过配置套件配置可以定制化项目编译参数
 
 
 
 ## 特性
 
-- 使用webpack5 + babel7 最新的构建解决方案
+- 使用rspack最新的构建解决方案
 
 - 支持React，Vue的编译运行
 
@@ -35,45 +35,35 @@ cnpm install @feflow/cli -g
     "devkit": {
         "commands": {
             "dev": {
-                "builder": "feflow-devkit-xbc-webpack5:dev",
+                "builder": "feflow-devkit-xbc-rspack:dev",
                 "options": { // 配置单独配置 配置项参考下面公用配置项
                     "isMinicss": false,
                     "port": 8013
                 }
             },
             "test": {
-                "builder": "feflow-devkit-xbc-webpack5:test",
+                "builder": "feflow-devkit-xbc-rspack:test",
                 "options": {
                     "isMinicss": true
                 }
             },
             "formalTest": {
-                "builder": "feflow-devkit-xbc-webpack5:formalTest",
+                "builder": "feflow-devkit-xbc-rspack:formalTest",
                 "options": {
                     "isMinicss": true
                 }
             },
             "demo": {
-                "builder": "feflow-devkit-xbc-webpack5:demo",
+                "builder": "feflow-devkit-xbc-rspack:demo",
                 "options": {
                     "isMinicss": true
                 }
             },
             "build": {
-                "builder": "feflow-devkit-xbc-webpack5:build",
+                "builder": "feflow-devkit-xbc-rspack:build",
                 "options": {
                     "port": 8003,
                     "isMinicss": true,
-                    externals: [{
-                        optionsId: 100, // xbc会将 optionsId 一致的配置去重，用作公共配置和单个配置的 去重
-                        module: "antd",
-                        entry: "https://cdn.bootcss.com/antd/3.26.12/antd.min.js",
-                        global: "antd"
-                    }, {
-                        module: "Vue",
-                        entry: "",
-                        global: "vue"
-                    }, ],
                 }
             }
         },
@@ -89,16 +79,6 @@ cnpm install @feflow/cli -g
             "alias": { // webpack别名配置
                 "@": "src",
             },
-            externals: [{
-                optionsId: 100, //  xbc会将 optionsId 一致的配置去重，用作公共配置和单个配置的 去重
-                module: "antd",
-                entry: "https://cdn.bootcss.com/antd/3.26.12/antd.min.js",
-                global: "antd"
-            }, {
-                module: "Vue",
-                entry: "",
-                global: "vue"
-            }, ],
             "envs": { // 环境变量配置 目前只支持固定环境变量配置
                 "dev": {
                     "envObj": {
@@ -167,7 +147,6 @@ cnpm install @feflow/cli -g
 | analyzer    | analyzer调试包的配置                    | true | object | {}     |
 | port        | webpack静态服务器启动端口号             | true | number | 无     |
 | alias       | webpack别名配置                         | true | object | {}     |
-| externals   | externals配置                           | true | array  | []     |
 | envs        | 环境变量配置 目前只支持固定环境变量配置 | true | object | {}     |
 
 ### 配置说明
@@ -190,7 +169,7 @@ cnpm install @feflow/cli -g
 ```
 
 
-#####  搭配套件使用的模板
+#####  搭配套件使用的模板(需要替换成当前构建工具才能使用)
 - [generator-xbc-react](https://github.com/xbcc123/generator-xbc-react) React后台管理模板
 	- 配置TS
 	- mobx

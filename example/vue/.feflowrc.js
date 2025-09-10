@@ -2,32 +2,32 @@ module.exports = {
     devkit: {
         commands: {
             dev: {
-                builder: "feflow-devkit-xbc-webpack5:dev",
+                builder: "feflow-devkit-xbc-rspack:dev",
                 options: {
                     isMinicss: false,
                     port: 1123
                 },
             },
             test: {
-                builder: "feflow-devkit-xbc-webpack5:test",
+                builder: "feflow-devkit-xbc-rspack:test",
                 options: {
                     isMinicss: true,
                 }
             },
             formalTest: {
-                builder: "feflow-devkit-xbc-webpack5:formalTest",
+                builder: "feflow-devkit-xbc-rspack:formalTest",
                 options: {
                     isMinicss: true,
                 }
             },
             demo: {
-                builder: "feflow-devkit-xbc-webpack5:demo",
+                builder: "feflow-devkit-xbc-rspack:demo",
                 options: {
                     isMinicss: true,
                 }
             },
             build: {
-                builder: "feflow-devkit-xbc-webpack5:build",
+                builder: "feflow-devkit-xbc-rspack:build",
                 options: {
                     isMinicss: true,
                     externals: [{
