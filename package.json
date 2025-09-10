@@ -1,11 +1,9 @@
 {
   "name": "feflow-devkit-xbc-rspack",
-  "version": "0.0.8",
+  "version": "0.0.1",
   "description": "rspack编译套件",
   "main": "index.js",
   "scripts": {
-    "build": "rspack build --config ./src/rspack/rspack.prod.config.js",
-    "dev": "rspack serve --config ./src/rspack/rspack.dev.config.js",
     "prepublish": "./node_modules/.bin/babel src --out-dir lib --presets=@babel/env",
     "build:test": "./node_modules/.bin/babel src --out-dir lib --presets=@babel/env",
     "eslint": "eslint ./src --fix",
