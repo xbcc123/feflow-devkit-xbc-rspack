@@ -10,7 +10,8 @@
     "jest": "jest",
     "jestcov": "jest --coverage",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "release": "release-it"
+    "release": "release-it",
+	"publish": "npm publish --registry=https://registry.npmjs.org"
   },
   "husky": {
     "hooks": {
