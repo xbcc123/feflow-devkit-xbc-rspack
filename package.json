@@ -1,6 +1,6 @@
 {
   "name": "feflow-devkit-xbc-rspack",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "rspack编译套件",
   "main": "index.js",
   "scripts": {
@@ -35,7 +35,7 @@
   "author": "Shawn",
   "license": "ISC",
   "devDependencies": {
-	    "@babel/cli": "^7.8.4",
+	"@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.7",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-proposal-decorators": "^7.8.3",

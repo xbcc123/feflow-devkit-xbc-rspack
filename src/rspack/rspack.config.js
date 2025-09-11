@@ -58,7 +58,7 @@ module.exports = {
 			{
 				test: /\.css$/,
 				use: [
-					path.resolve(__dirname, '../../node_modules/vue-style-loader/index.js'),
+					path.resolve(__dirname, '../../node_modules/vue-style-loader'),
 					// rspack.CssExtractRspackPlugin.loader,
 					{
 						loader: path.resolve(__dirname, '../../node_modules/css-loader'),
@@ -76,7 +76,7 @@ module.exports = {
 			{
 				test: /\.less$/,
 				use: [
-					path.resolve(__dirname, '../../node_modules/vue-style-loader/index.js'),
+					path.resolve(__dirname, '../../node_modules/vue-style-loader'),
 					// rspack.CssExtractRspackPlugin.loader,
 					{
 						loader: path.resolve(__dirname, '../../node_modules/css-loader'),
@@ -98,7 +98,7 @@ module.exports = {
 			{
 				test: /\.s[ac]ss$/,
 				use: [
-					path.resolve(__dirname, '../../node_modules/vue-style-loader/index.js'),
+					path.resolve(__dirname, '../../node_modules/vue-style-loader'),
 					// rspack.CssExtractRspackPlugin.loader,
 					{
 						loader: path.resolve(__dirname, '../../node_modules/css-loader'),
@@ -117,7 +117,7 @@ module.exports = {
 			{
 				test: /\.sty(l|us)$/,
 				use: [
-					path.resolve(__dirname, '../../node_modules/vue-style-loader/index.js'),
+					path.resolve(__dirname, '../../node_modules/vue-style-loader'),
 					// rspack.CssExtractRspackPlugin.loader,
 					{
 						loader: path.resolve(__dirname, '../../node_modules/css-loader'),

@@ -1,5 +1,6 @@
 const path = require("path");
 const { VueLoaderPlugin } = require("vue-loader");
+const { getLoaderPath } = require("../utils/index.js");
 const { rspack, ProgressPlugin } = require("@rspack/core");
 
 const projectRoot = process.cwd();
@@ -32,7 +33,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.vue$/,
-				loader: path.resolve(__dirname, "../../node_modules/vue-loader"),
+				   loader: getLoaderPath('vue-loader'),
 			},
 			{
 				test: /\.[jt]sx?$/,

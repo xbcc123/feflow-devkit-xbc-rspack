@@ -2,6 +2,7 @@ const path = require("path");
 const merge = require("webpack-merge");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const { deepCopy } = require("../tools/index.js");
+const { getLoaderPath } = require("../utils/index.js");
 const fs = require("fs");
 const { rspack } = require("@rspack/core");
 
@@ -137,9 +138,9 @@ class Builder {
 		return {
 			test: /\.css$/,
 			use: [
-				isMinicss ? rspack.CssExtractRspackPlugin.loader : path.resolve(__dirname, '../../node_modules/style-loader'),
-				{
-					loader: path.resolve(__dirname, '../../node_modules/css-loader'),
+				   isMinicss ? rspack.CssExtractRspackPlugin.loader : getLoaderPath('style-loader'),
+				   {
+					   loader: getLoaderPath('css-loader'),
 					options: {
 						modules: isModule
 							? {
@@ -151,8 +152,8 @@ class Builder {
 							: false,
 					},
 				},
-				{
-					loader: path.resolve(__dirname, '../../node_modules/postcss-loader'),
+				   {
+					   loader: getLoaderPath('postcss-loader'),
 					options: {
 						postcssOptions: {
 							plugins: [require('autoprefixer')],
@@ -167,9 +168,9 @@ class Builder {
 		return {
 			test: /\.less$/,
 			use: [
-				isMinicss ? rspack.CssExtractRspackPlugin.loader : path.resolve(__dirname, '../../node_modules/style-loader'),
-				{
-					loader: path.resolve(__dirname, '../../node_modules/css-loader'),
+				   isMinicss ? rspack.CssExtractRspackPlugin.loader : getLoaderPath('style-loader'),
+				   {
+					   loader: getLoaderPath('css-loader'),
 					options: {
 						modules: isModule
 							? {
@@ -181,16 +182,16 @@ class Builder {
 							: false,
 					},
 				},
-				{
-					loader: path.resolve(__dirname, '../../node_modules/postcss-loader'),
+				   {
+					   loader: getLoaderPath('postcss-loader'),
 					options: {
 						postcssOptions: {
 							plugins: [require('autoprefixer')],
 						},
 					},
 				},
-				{
-					loader: path.resolve(__dirname, '../../node_modules/less-loader'),
+				   {
+					   loader: getLoaderPath('less-loader'),
 					options: { lessOptions: { javascriptEnabled: true } },
 				},
 			],
@@ -201,9 +202,9 @@ class Builder {
 		return {
 			test: /\.s[ac]ss$/,
 			use: [
-				isMinicss ? rspack.CssExtractRspackPlugin.loader : path.resolve(__dirname, '../../node_modules/style-loader'),
-				{
-					loader: path.resolve(__dirname, '../../node_modules/css-loader'),
+				   isMinicss ? rspack.CssExtractRspackPlugin.loader : getLoaderPath('style-loader'),
+				   {
+					   loader: getLoaderPath('css-loader'),
 					options: {
 						modules: isModule
 							? {
@@ -215,15 +216,15 @@ class Builder {
 							: false,
 					},
 				},
-				{
-					loader: path.resolve(__dirname, '../../node_modules/postcss-loader'),
+				   {
+					   loader: getLoaderPath('postcss-loader'),
 					options: {
 						postcssOptions: {
 							plugins: [require('autoprefixer')],
 						},
 					},
 				},
-				path.resolve(__dirname, '../../node_modules/sass-loader'),
+				   getLoaderPath('sass-loader'),
 			],
 		}
 	}
@@ -232,9 +233,9 @@ class Builder {
 		return {
 			test: /\.sty(l|lus)$/,
 			use: [
-				isMinicss ? rspack.CssExtractRspackPlugin.loader : path.resolve(__dirname, '../../node_modules/style-loader'),
-				{
-					loader: path.resolve(__dirname, '../../node_modules/css-loader'),
+				   isMinicss ? rspack.CssExtractRspackPlugin.loader : getLoaderPath('style-loader'),
+				   {
+					   loader: getLoaderPath('css-loader'),
 					options: {
 						modules: isModule
 							? {
@@ -246,15 +247,15 @@ class Builder {
 							: false,
 					},
 				},
-				{
-					loader: path.resolve(__dirname, '../../node_modules/postcss-loader'),
+				   {
+					   loader: getLoaderPath('postcss-loader'),
 					options: {
 						postcssOptions: {
 							plugins: [require('autoprefixer')],
 						},
 					},
 				},
-				path.resolve(__dirname, '../../node_modules/stylus-loader'),
+				   getLoaderPath('stylus-loader'),
 			],
 		}
 	}
