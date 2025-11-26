@@ -138,9 +138,9 @@ class Builder {
 		return {
 			test: /\.css$/,
 			use: [
-				   isMinicss ? rspack.CssExtractRspackPlugin.loader : getLoaderPath('style-loader'),
-				   {
-					   loader: getLoaderPath('css-loader'),
+				isMinicss ? rspack.CssExtractRspackPlugin.loader : getLoaderPath('style-loader'),
+				{
+					loader: getLoaderPath('css-loader'),
 					options: {
 						modules: isModule
 							? {
@@ -148,12 +148,12 @@ class Builder {
 								exportGlobals: true,
 								localIdentName:
 									"[path][name]__[local]--[hash:base64:5]",
-							  }
+							}
 							: false,
 					},
 				},
-				   {
-					   loader: getLoaderPath('postcss-loader'),
+				{
+					loader: getLoaderPath('postcss-loader'),
 					options: {
 						postcssOptions: {
 							plugins: [require('autoprefixer')],
@@ -164,13 +164,13 @@ class Builder {
 		}
 	}
 
-	setLessRule(isModule,isMinicss) {
+	setLessRule(isModule, isMinicss) {
 		return {
 			test: /\.less$/,
 			use: [
-				   isMinicss ? rspack.CssExtractRspackPlugin.loader : getLoaderPath('style-loader'),
-				   {
-					   loader: getLoaderPath('css-loader'),
+				isMinicss ? rspack.CssExtractRspackPlugin.loader : getLoaderPath('style-loader'),
+				{
+					loader: getLoaderPath('css-loader'),
 					options: {
 						modules: isModule
 							? {
@@ -178,20 +178,20 @@ class Builder {
 								exportGlobals: true,
 								localIdentName:
 									"[path][name]__[local]--[hash:base64:5]",
-							  }
+							}
 							: false,
 					},
 				},
-				   {
-					   loader: getLoaderPath('postcss-loader'),
+				{
+					loader: getLoaderPath('postcss-loader'),
 					options: {
 						postcssOptions: {
 							plugins: [require('autoprefixer')],
 						},
 					},
 				},
-				   {
-					   loader: getLoaderPath('less-loader'),
+				{
+					loader: getLoaderPath('less-loader'),
 					options: { lessOptions: { javascriptEnabled: true } },
 				},
 			],
@@ -202,9 +202,9 @@ class Builder {
 		return {
 			test: /\.s[ac]ss$/,
 			use: [
-				   isMinicss ? rspack.CssExtractRspackPlugin.loader : getLoaderPath('style-loader'),
-				   {
-					   loader: getLoaderPath('css-loader'),
+				isMinicss ? rspack.CssExtractRspackPlugin.loader : getLoaderPath('style-loader'),
+				{
+					loader: getLoaderPath('css-loader'),
 					options: {
 						modules: isModule
 							? {
@@ -212,19 +212,19 @@ class Builder {
 								exportGlobals: true,
 								localIdentName:
 									"[path][name]__[local]--[hash:base64:5]",
-							  }
+							}
 							: false,
 					},
 				},
-				   {
-					   loader: getLoaderPath('postcss-loader'),
+				{
+					loader: getLoaderPath('postcss-loader'),
 					options: {
 						postcssOptions: {
 							plugins: [require('autoprefixer')],
 						},
 					},
 				},
-				   getLoaderPath('sass-loader'),
+				getLoaderPath('sass-loader'),
 			],
 		}
 	}
@@ -233,9 +233,9 @@ class Builder {
 		return {
 			test: /\.sty(l|lus)$/,
 			use: [
-				   isMinicss ? rspack.CssExtractRspackPlugin.loader : getLoaderPath('style-loader'),
-				   {
-					   loader: getLoaderPath('css-loader'),
+				isMinicss ? rspack.CssExtractRspackPlugin.loader : getLoaderPath('style-loader'),
+				{
+					loader: getLoaderPath('css-loader'),
 					options: {
 						modules: isModule
 							? {
@@ -243,19 +243,19 @@ class Builder {
 								exportGlobals: true,
 								localIdentName:
 									"[path][name]__[local]--[hash:base64:5]",
-							  }
+							}
 							: false,
 					},
 				},
-				   {
-					   loader: getLoaderPath('postcss-loader'),
+				{
+					loader: getLoaderPath('postcss-loader'),
 					options: {
 						postcssOptions: {
 							plugins: [require('autoprefixer')],
 						},
 					},
 				},
-				   getLoaderPath('stylus-loader'),
+				getLoaderPath('stylus-loader'),
 			],
 		}
 	}
