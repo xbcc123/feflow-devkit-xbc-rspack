@@ -138,7 +138,7 @@ class Builder {
 		return {
 			test: /\.css$/,
 			use: [
-				   isMinicss ? rspack.CssExtractRspackPlugin.loader : getLoaderPath('style-loader'),
+				    getLoaderPath('style-loader'),
 				   {
 					   loader: getLoaderPath('css-loader'),
 					options: {
@@ -152,14 +152,12 @@ class Builder {
 							: false,
 					},
 				},
-				   {
-					   loader: getLoaderPath('postcss-loader'),
-					options: {
-						postcssOptions: {
-							plugins: [require('autoprefixer')],
-						},
-					},
-				},
+		 {
+            loader: 'builtin:lightningcss-loader',
+            options: {
+              targets: 'ie 10',
+            },
+          },
 			],
 		}
 	}
@@ -168,7 +166,7 @@ class Builder {
 		return {
 			test: /\.less$/,
 			use: [
-				   isMinicss ? rspack.CssExtractRspackPlugin.loader : getLoaderPath('style-loader'),
+				    getLoaderPath('style-loader'),
 				   {
 					   loader: getLoaderPath('css-loader'),
 					options: {
@@ -182,14 +180,12 @@ class Builder {
 							: false,
 					},
 				},
-				   {
-					   loader: getLoaderPath('postcss-loader'),
-					options: {
-						postcssOptions: {
-							plugins: [require('autoprefixer')],
-						},
-					},
-				},
+		 {
+            loader: 'builtin:lightningcss-loader',
+            options: {
+              targets: 'ie 10',
+            },
+          },
 				   {
 					   loader: getLoaderPath('less-loader'),
 					options: { lessOptions: { javascriptEnabled: true } },
@@ -202,7 +198,7 @@ class Builder {
 		return {
 			test: /\.s[ac]ss$/,
 			use: [
-				   isMinicss ? rspack.CssExtractRspackPlugin.loader : getLoaderPath('style-loader'),
+				    getLoaderPath('style-loader'),
 				   {
 					   loader: getLoaderPath('css-loader'),
 					options: {
@@ -216,14 +212,12 @@ class Builder {
 							: false,
 					},
 				},
-				   {
-					   loader: getLoaderPath('postcss-loader'),
-					options: {
-						postcssOptions: {
-							plugins: [require('autoprefixer')],
-						},
-					},
-				},
+			 {
+            loader: 'builtin:lightningcss-loader',
+            options: {
+              targets: 'ie 10',
+            },
+          },
 				   getLoaderPath('sass-loader'),
 			],
 		}
@@ -233,7 +227,7 @@ class Builder {
 		return {
 			test: /\.sty(l|lus)$/,
 			use: [
-				   isMinicss ? rspack.CssExtractRspackPlugin.loader : getLoaderPath('style-loader'),
+				    getLoaderPath('style-loader'),
 				   {
 					   loader: getLoaderPath('css-loader'),
 					options: {
@@ -247,14 +241,12 @@ class Builder {
 							: false,
 					},
 				},
-				   {
-					   loader: getLoaderPath('postcss-loader'),
-					options: {
-						postcssOptions: {
-							plugins: [require('autoprefixer')],
-						},
-					},
-				},
+			 {
+            loader: 'builtin:lightningcss-loader',
+            options: {
+              targets: 'ie 10',
+            },
+          },
 				   getLoaderPath('stylus-loader'),
 			],
 		}
