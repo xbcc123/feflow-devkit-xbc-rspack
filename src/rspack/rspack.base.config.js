@@ -33,7 +33,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.vue$/,
-				   loader: getLoaderPath('vue-loader'),
+				loader: getLoaderPath("vue-loader"),
 			},
 			{
 				test: /\.[jt]sx?$/,
