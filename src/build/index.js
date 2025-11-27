@@ -275,6 +275,7 @@ class Builder {
 	}
 
 	setDefinePlugin(envs, currentEnv) {
+		console.log(envs[currentEnv].envObj)
 		return new rspack.DefinePlugin({
 			"process.env": envs[currentEnv].envObj,
 		});

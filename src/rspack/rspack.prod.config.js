@@ -6,7 +6,6 @@ const baseConfig = require("./rspack.base.config");
 const projectRoot = process.cwd();
 
 const prodConfig = {
-  mode: "production",
   devtool: false,
   plugins: [
     new rspack.HtmlRspackPlugin({
